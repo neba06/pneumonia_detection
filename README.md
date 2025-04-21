@@ -64,6 +64,7 @@ Our advanced preprocessing pipeline ensures optimal image quality for the model:
 ![Preprocessing Visualization Example](preprocessing_stages.png)
 
 ## Model Architecture
+
 ```python
 model = tf.keras.Sequential([
     EfficientNetB0(include_top=False, weights='imagenet'),
@@ -72,40 +73,40 @@ model = tf.keras.Sequential([
     layers.Dropout(0.5),
     layers.Dense(1, activation='sigmoid')  # Binary classification
 ])
-
-
-
+```
 
 ## Model Specifications
 
 ### Key Specifications
-| Component              | Specification                          |
-|------------------------|----------------------------------------|
-| **Base Model**         | EfficientNetB0 (ImageNet pretrained)   |
-| **Input Shape**        | 224×224×3 (RGB)                       |
-| **Trainable Params**   | 4,049,249                             |
-| **Optimizer**          | Adam (lr=1e-4)                        |
-| **Loss Function**      | Binary Crossentropy                   |
-| **Metrics**            | Accuracy                              |
+
+| Component            | Specification                          |
+|----------------------|----------------------------------------|
+| **Base Model**       | EfficientNetB0 (ImageNet pretrained)   |
+| **Input Shape**      | 224×224×3 (RGB)                         |
+| **Trainable Params** | 4,049,249                               |
+| **Optimizer**        | Adam (lr=1e-4)                          |
+| **Loss Function**    | Binary Crossentropy                     |
+| **Metrics**          | Accuracy                                |
 
 ## Training Configuration
+
 The model was carefully trained with the following parameters:
 
-- **Training Duration**: 40 epochs
-- **Batch Size**: 32 samples
+- **Training Duration**: 40 epochs  
+- **Batch Size**: 32 samples  
 - **Data Augmentation**:
-  - ↻ Rotation: ±20°
-  - ↔️ Width/Height Shift: ±20% of total dimension
-  - ✂️ Shear: ±20% intensity
-  - 🔍 Zoom: ±20% magnification
-  - ↔️ Horizontal Flip: Randomly applied
+  - 🔄 **Rotation**: ±20°
+  - ↔️ **Width/Height Shift**: ±20% of total dimension
+  - ✂️ **Shear**: ±20% intensity
+  - 🔍 **Zoom**: ±20% magnification
+  - ↔️ **Horizontal Flip**: Randomly applied
 
 ## Performance Results
 
 ### Evaluation Metrics
-| Metric               | Score      |
-|----------------------|------------|
-| **Test Accuracy**    | 98.08%     |
-| **Test Loss**        | 0.0574     |
 
-### Confusion Matrix
+| Metric             | Score    |
+|--------------------|----------|
+| **Test Accuracy**  | 98.08%   |
+| **Test Loss**      | 0.0574   |
+
