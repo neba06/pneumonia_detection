@@ -24,7 +24,7 @@ This project implements a binary classification model to distinguish between:
 - Normal chest X-rays
 - Pneumonia-infected chest X-rays
 
-The model achieves **98.24% test accuracy** using transfer learning with EfficientNetB0 as the base model.
+The model achieves **98% test accuracy** using transfer learning with EfficientNetB0 as the base model.
 
 ## Dataset
 The model uses the [Chest X-Ray Images (Pneumonia) dataset](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) from Kaggle.
@@ -69,3 +69,25 @@ model = Sequential([
     Dropout(0.5),
     Dense(1, activation='sigmoid')
 ])
+## Key Specifications:
+- **Base Model**: EfficientNetB0 (pretrained on ImageNet)
+- **Input Shape**: (224, 224, 3)
+- **Trainable Parameters**: 4,049,249
+- **Optimizer**: Adam (learning_rate=1e-4)
+- **Loss Function**: Binary Crossentropy
+- **Metrics**: Accuracy
+
+## Training
+The model was trained for 40 epochs with:
+- **Batch Size**: 32
+- **Data Augmentation**:
+  - Rotation (±20°)
+  - Width/Height Shift (±20%)
+  - Shear (±20%)
+  - Zoom (±20%)
+  - Horizontal Flip
+
+## Results
+### Final Evaluation Metrics:
+- **Test Accuracy**: 98.08%
+- **Test Loss**: 0.0574
