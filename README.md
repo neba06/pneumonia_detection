@@ -88,7 +88,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dropout(0.5),
     tf.keras.layers.Dense(1, activation='sigmoid')  # Binary classification
 ])
-
+```
 
 ## ⚙️ Model Specifications
 
